@@ -1,0 +1,19 @@
+.card__stack {
+  /* position: absolute; */
+}
+
+.card__stack .card__container {
+  position: relative;
+}
+
+.card__stack .card__container:nth-child(2) {
+  top: -200px;
+}
+
+.card__stack .card__container:nth-child(3) {
+  top: -400px;
+}
+
+.card__stack .card__container:nth-child(4) {
+  top: -600px;
+}
