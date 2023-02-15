@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Card from '../../components/Card/Card';
 import CardStack from '../../components/CardStack/CardStack';
 import Top from '../../components/Top/Top';
+import './Home.css';
 
 export default function Home({ allCards, activeCardId, activeCard, handleClickActiveCard }) {
   const navigate = useNavigate();
@@ -17,10 +18,10 @@ export default function Home({ allCards, activeCardId, activeCard, handleClickAc
   return (
     <>
       <Top title='E-WALLET' />
-      <h2>Active Card</h2>
-      <Card activeCard={activeCard} />
-
-      <h2>Cardstack</h2>
+      <article className='active__card'>
+        <h2 className='card__title'>Active Card</h2>
+        <Card activeCard={activeCard} />
+      </article>
       <CardStack
         allCards={allCards}
         activeCardId={activeCardId}

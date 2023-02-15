@@ -18,7 +18,7 @@ function App() {
     setAllCards([
       {
         id: 0,
-        cardNumber: 1234123412341234,
+        cardNumber: '1234 1234 1234 1234',
         name: 'Joakim Trulsson',
         vendor: 'Bitcoin Inc',
         valid: '12/12',

@@ -12,6 +12,11 @@ body {
   justify-content: center;
 }
 
+.App {
+  display: flex;
+  flex-direction: column;
+}
+
 h1,
 h2 {
   font-family: 'Source Sans Pro', sans-serif;
@@ -35,14 +40,35 @@ select {
   font-family: 'PT Mono', sans-serif;
 }
 
+label {
+  font-size: 12px;
+}
+
+input,
+select {
+  height: 56px;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  border: 1px solid #000;
+  padding-left: 1rem;
+}
+
 .btn {
+  /* display: block; */
+  width: 380px;
+  height: 80px;
   border: 1px solid #000;
   border-radius: 8px;
   background-color: #fff;
   font-weight: 700;
+  font-size: 22px;
 }
 
 .btn-addcard {
   background-color: #000;
   color: #fff;
+}
+
+.btn-addnewcard {
+  align-self: flex-end;
 }

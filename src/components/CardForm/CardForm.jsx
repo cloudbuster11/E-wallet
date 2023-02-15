@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import { v4 as uuid } from 'uuid';
 
+import './CardForm.css';
+
 export default function CardForm(props) {
   const navigate = useNavigate();
   const id = uuid().slice(0, 4);
@@ -14,7 +16,7 @@ export default function CardForm(props) {
   }
 
   return (
-    <form>
+    <form className='addcard__form'>
       <label htmlFor='form__cardnumber'>Card Number</label>
       <input
         type='text'
@@ -28,17 +30,21 @@ export default function CardForm(props) {
         placeholder='Firstname Lastname'
         onChange={(e) => (newCard.name = e.target.value)}
       ></input>
-      <fieldset>
-        <label htmlFor='form__valid'>Valid Thru</label>
-        <input
-          type='text'
-          id='form__valid'
-          placeholder='MM/YY'
-          onChange={(e) => (newCard.valid = e.target.value)}
-        ></input>
-        <label htmlFor='form_cvv'>Cvv</label>
-        <input type='numbers' id='form__cvv' onChange={(e) => (newCard.cvv = e.target.value)}></input>
-      </fieldset>
+      <section className='misc__container'>
+        <section className='valid'>
+          <label htmlFor='form__valid'>Valid Thru</label>
+          <input
+            type='text'
+            id='form__valid'
+            placeholder='MM/YY'
+            onChange={(e) => (newCard.valid = e.target.value)}
+          ></input>
+        </section>
+        <section className='cvv'>
+          <label htmlFor='form_cvv'>Cvv</label>
+          <input type='numbers' id='form__cvv' onChange={(e) => (newCard.cvv = e.target.value)}></input>
+        </section>
+      </section>
       <label htmlFor='form_vendor'>Vendor</label>
       <select id='form__vendor' onChange={(e) => (newCard.vendor = e.target.value)}>
         <option value=''></option>

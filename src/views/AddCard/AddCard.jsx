@@ -7,8 +7,10 @@ export default function AddCard({ handleSubmit }) {
   return (
     <>
       <Top title='ADD A NEW BANK CARD' />
-      <p>ACTIVE CARD</p>
+
+      <h2 className='card__title'>New card</h2>
       <Card activeCard={false} />
+
       <CardForm handleSubmit={handleSubmit} />
     </>
   );

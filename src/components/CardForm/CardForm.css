@@ -1,0 +1,15 @@
+.addcard__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.misc__container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.valid,
+.cvv {
+  display: flex;
+  flex-direction: column;
+}
