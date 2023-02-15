@@ -3,6 +3,7 @@ import Card from '../Card/Card';
 import './CardStack.css';
 
 export default function CardStack({ allCards, activeCardId, handleClickActiveCard }) {
+  if (allCards === null) return;
   function removeActiveCard(allCards, activeCardId) {
     const allCardsCopy = Array.from(allCards);
 

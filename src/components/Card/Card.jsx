@@ -3,6 +3,8 @@ import { ChipDark, ChipLight } from '../../assets';
 import './Card.css';
 
 export default function Card({ activeCard, handleClickActiveCard }) {
+  if (Object.keys(activeCard).length === 0) return;
+
   const emptyCardView = (
     <article
       className='card__container card__placeholder'
@@ -19,7 +21,7 @@ export default function Card({ activeCard, handleClickActiveCard }) {
         </section>
         <section>
           <p className='card__label'>VALID THRU</p>
-          <p>MM/YY</p>
+          <p className='card__valid'>MM/YY</p>
         </section>
       </section>
     </article>
@@ -49,7 +51,7 @@ export default function Card({ activeCard, handleClickActiveCard }) {
           </section>
           <section>
             <p className='card__label'>VALID THRU</p>
-            <p>{activeCard.valid}</p>
+            <p className='card__valid'>{activeCard.valid}</p>
           </section>
         </section>
       </article>

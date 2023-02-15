@@ -16,7 +16,7 @@ export default function Home({ allCards, activeCardId, activeCard, handleClickAc
   // console.log(activeCard);
 
   return (
-    <>
+    <main>
       <Top title='E-WALLET' />
       <article className='active__card'>
         <h2 className='card__title'>Active Card</h2>
@@ -30,6 +30,6 @@ export default function Home({ allCards, activeCardId, activeCard, handleClickAc
       <button className='btn btn-addnewcard' onClick={handleClick}>
         ADD A NEW CARD
       </button>
-    </>
+    </main>
   );
 }
