@@ -10,8 +10,6 @@ export default function Card({ activeCard, handleClickActiveCard }) {
     >
       <section className='card__top'>
         <img className='top__chip' src={ChipDark}></img>
-
-        <img className='top__vendor' src={activeCard.img}></img>
       </section>
       <p className='card__number'>XXXX XXXX XXXX XXXX</p>
       <section className='card__bottom'>
@@ -36,12 +34,12 @@ export default function Card({ activeCard, handleClickActiveCard }) {
         onClick={() => {
           handleClickActiveCard(activeCard.id);
         }}
-        style={{ backgroundColor: activeCard.color }}
+        style={{ backgroundColor: activeCard.theme.color, color: activeCard.theme.fontColor }}
       >
         <section className='card__top'>
           <img className='top__chip' src={ChipDark}></img>
 
-          <img className='top__vendor' src={activeCard.img}></img>
+          <img className='top__vendor' src={activeCard.theme.img}></img>
         </section>
         <p className='card__number'>{activeCard.cardNumber}</p>
         <section className='card__bottom'>

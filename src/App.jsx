@@ -2,6 +2,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 import './App.css';
+import { bitCoinTheme, blockChainTheme, evilTheme, ninjaTheme } from './themes';
 import { ChipDark, ChipLight, Bitcoin, Blockchain, Evil, Ninja } from './assets';
 
 // import router from './router';
@@ -22,17 +23,15 @@ function App() {
         name: 'Joakim Trulsson',
         vendor: 'Bitcoin Inc',
         valid: '12/12',
-        img: Bitcoin,
-        color: '#FFAE34',
+        theme: bitCoinTheme,
       },
       {
         id: 1,
         cardNumber: 1234123412341234,
         name: 'Emmy Trulsson',
-        vendor: 'Block Chain',
         valid: '12/12',
-        img: Blockchain,
-        color: '#8B58F9',
+        vendor: 'Block Chain',
+        theme: blockChainTheme,
       },
       {
         id: 2,
@@ -40,8 +39,7 @@ function App() {
         name: 'Bella Trulsson',
         vendor: 'Evil Corp',
         valid: '12/12',
-        img: Evil,
-        color: '#F33355',
+        theme: evilTheme,
       },
       {
         id: 3,
@@ -49,10 +47,10 @@ function App() {
         name: 'Eddi Trulsson',
         vendor: 'Ninja Bank',
         valid: '12/12',
-        img: Ninja,
-        color: '#222222',
+        theme: ninjaTheme,
       },
     ]);
+    console.log(allCards);
   }, []);
 
   let activeCard = {};

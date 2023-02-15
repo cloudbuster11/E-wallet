@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { v4 as uuid } from 'uuid';
+import { bitCoinTheme, blockChainTheme, evilTheme, ninjaTheme } from '../../themes';
 
 import './CardForm.css';
 
@@ -46,12 +47,26 @@ export default function CardForm(props) {
         </section>
       </section>
       <label htmlFor='form_vendor'>Vendor</label>
-      <select id='form__vendor' onChange={(e) => (newCard.vendor = e.target.value)}>
+      <select
+        id='form__vendor'
+        onChange={(e) => {
+          newCard.vendor = e.target.value;
+          newCard.theme = JSON.parse(e.target.selectedOptions[0].getAttribute('data-set'));
+        }}
+      >
         <option value=''></option>
-        <option value='Bitcoin'>Bitcoin</option>
-        <option value='Ninja'>Ninja</option>
-        <option value='Evil'>Evil</option>
-        <option value='Blockchain'>Block Chain</option>
+        <option value='Bitcoin' data-set={JSON.stringify(bitCoinTheme)}>
+          Bitcoin
+        </option>
+        <option value='Ninja' data-set={JSON.stringify(ninjaTheme)}>
+          Ninja
+        </option>
+        <option value='Evil' data-set={JSON.stringify(evilTheme)}>
+          Evil
+        </option>
+        <option value='Blockchain' data-set={JSON.stringify(blockChainTheme)}>
+          Block Chain
+        </option>
       </select>
       <button
         className='btn btn-addcard'
