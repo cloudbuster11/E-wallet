@@ -7,6 +7,10 @@
   color: #fff;
 }
 
+.card__placeholder {
+  margin-bottom: 2rem;
+}
+
 .card__top {
   display: flex;
   margin-bottom: 1rem;

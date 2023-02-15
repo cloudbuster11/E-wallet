@@ -4,15 +4,26 @@ import './Card.css';
 
 export default function Card({ activeCard, handleClickActiveCard }) {
   const emptyCardView = (
-    <article className='card__container active__card' style={{ backgroundColor: '#D0D0D0' }}>
-      <img src={ChipDark}></img>
-      <p>XXXXXXXXXXXX</p>
-      <p>CARDHANDLER NAME</p>
+    <article
+      className='card__container card__placeholder'
+      style={{ backgroundColor: '#D0D0D0', color: '#000' }}
+    >
+      <section className='card__top'>
+        <img className='top__chip' src={ChipDark}></img>
 
-      <p>FIRSTNAME LASTNAME</p>
-      <p>VALID THRU</p>
-      <p>MM/YY</p>
-      {/* <p>{activeCard.vendor}</p> */}
+        <img className='top__vendor' src={activeCard.img}></img>
+      </section>
+      <p className='card__number'>XXXX XXXX XXXX XXXX</p>
+      <section className='card__bottom'>
+        <section>
+          <p className='card__label'>CARDHANDLER NAME</p>
+          <p>Firstname Lastname</p>
+        </section>
+        <section>
+          <p className='card__label'>VALID THRU</p>
+          <p>MM/YY</p>
+        </section>
+      </section>
     </article>
   );
 
