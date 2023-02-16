@@ -21,7 +21,8 @@ export default function Home({
   let activeCard = {};
 
   if (allCards) {
-    activeCard = allCards.find((card) => card.id === activeCardId);
+    activeCard = allCards.at(0);
+    // activeCard = allCards.find((card) => card.id === activeCardId);
   }
 
   function handleClick() {
@@ -49,7 +50,7 @@ export default function Home({
           </article>
           <CardStack
             allCards={allCards}
-            activeCardId={activeCardId}
+            // activeCardId={activeCardId}
             handleClickActiveCard={handleClickActiveCard}
             handleDisplayWarning={handleDisplayWarning}
           />

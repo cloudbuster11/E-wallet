@@ -3,15 +3,16 @@ import Card from '../Card/Card';
 import './CardStack.css';
 
 export default function CardStack({ allCards, activeCardId, handleClickActiveCard, handleDisplayWarning }) {
-  function removeActiveCard(allCards, activeCardId) {
+  function removeActiveCard(allCards) {
     const allCardsCopy = Array.from(allCards);
 
-    const cardForStack = allCardsCopy.findIndex((card) => card.id === activeCardId);
-    allCardsCopy.splice(cardForStack, 1);
+    // const cardForStack = allCardsCopy.findIndex((card) => card.id === 0);
+    // allCardsCopy.splice(cardForStack, 1);
+    const removedCard = allCardsCopy.shift();
     return allCardsCopy;
   }
 
-  const cardStack = removeActiveCard(allCards, activeCardId);
+  const cardStack = removeActiveCard(allCards, 0);
 
   const cardStackList = cardStack.map((card) => {
     return (

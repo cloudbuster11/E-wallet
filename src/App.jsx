@@ -8,7 +8,7 @@ import AddCard from './views/AddCard/AddCard';
 
 function App() {
   const [allCards, setAllCards] = useState(JSON.parse(localStorage.getItem('allCards')));
-  const [activeCardId, setActiveCardId] = useState(0);
+  // const [activeCardId, setActiveCardId] = useState(0);
   const [displayDeleteWarning, setDisplayDeleteWarning] = useState(false);
   const [clickedDeleteCard, setClickedDeleteCard] = useState();
 
@@ -26,12 +26,22 @@ function App() {
     localStorage.setItem('allCards', JSON.stringify(allCards));
   }, [allCards]);
 
-  const handleClickActiveCard = (card) => {
-    setActiveCardId(card);
+  const handleClickActiveCard = (cardId) => {
+    // setActiveCardId(cardId);
+    console.log(cardId);
+    console.log(allCards);
+
+    const index = allCards.findIndex(({ id }) => id === cardId);
+    if (index !== -1) {
+      const updatedData = [...allCards];
+      updatedData.unshift(...updatedData.splice(index, 1));
+      console.log(updatedData);
+      setAllCards(updatedData);
+    }
   };
 
   const handleSubmit = (card) => {
-    setActiveCardId(card.id);
+    // setActiveCardId(card.id);
     setAllCards([...allCards, card]);
   };
 
@@ -46,6 +56,7 @@ function App() {
     const removedCardId = allCardsCopy.findIndex((card) => card.id === clickedDeleteCard.id);
     allCardsCopy.splice(removedCardId, 1);
     setAllCards(allCardsCopy);
+    // setActiveCardId(allCards.at(-1).id);
   };
 
   const router = createBrowserRouter([
@@ -54,7 +65,7 @@ function App() {
       element: (
         <Home
           allCards={allCards}
-          activeCardId={activeCardId}
+          // activeCardId={activeCardId}
           handleClickActiveCard={handleClickActiveCard}
           handleDeleteCard={handleDeleteCard}
           handleDisplayWarning={handleDisplayWarning}
