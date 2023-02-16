@@ -2,7 +2,7 @@ import Card from '../Card/Card';
 
 import './CardStack.css';
 
-export default function CardStack({ allCards, activeCardId, handleClickActiveCard, handleDeleteCard }) {
+export default function CardStack({ allCards, activeCardId, handleClickActiveCard, handleDisplayWarning }) {
   function removeActiveCard(allCards, activeCardId) {
     const allCardsCopy = Array.from(allCards);
 
@@ -19,7 +19,7 @@ export default function CardStack({ allCards, activeCardId, handleClickActiveCar
         key={card.id}
         activeCard={card}
         handleClickActiveCard={handleClickActiveCard}
-        handleDeleteCard={handleDeleteCard}
+        handleDisplayWarning={handleDisplayWarning}
       />
     );
   });

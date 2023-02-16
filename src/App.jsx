@@ -9,6 +9,8 @@ import AddCard from './views/AddCard/AddCard';
 function App() {
   const [allCards, setAllCards] = useState(JSON.parse(localStorage.getItem('allCards')));
   const [activeCardId, setActiveCardId] = useState(0);
+  const [displayDeleteWarning, setDisplayDeleteWarning] = useState(false);
+  const [clickedDeleteCard, setClickedDeleteCard] = useState();
 
   useEffect(() => {
     if (allCards === null) {
@@ -33,10 +35,15 @@ function App() {
     setAllCards([...allCards, card]);
   };
 
-  const handleDeleteCard = (clickedCard) => {
-    const allCardsCopy = Array.from(allCards);
-    const removedCardId = allCardsCopy.findIndex((card) => card.id === clickedCard.id);
+  function handleDisplayWarning(card) {
+    setClickedDeleteCard(card);
+    setDisplayDeleteWarning(!displayDeleteWarning);
+  }
 
+  const handleDeleteCard = () => {
+    setDisplayDeleteWarning(false);
+    const allCardsCopy = Array.from(allCards);
+    const removedCardId = allCardsCopy.findIndex((card) => card.id === clickedDeleteCard.id);
     allCardsCopy.splice(removedCardId, 1);
     setAllCards(allCardsCopy);
   };
@@ -50,6 +57,8 @@ function App() {
           activeCardId={activeCardId}
           handleClickActiveCard={handleClickActiveCard}
           handleDeleteCard={handleDeleteCard}
+          handleDisplayWarning={handleDisplayWarning}
+          displayDeleteWarning={displayDeleteWarning}
         />
       ),
     },

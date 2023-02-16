@@ -1,11 +1,20 @@
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 import Card from '../../components/Card/Card';
 import CardStack from '../../components/CardStack/CardStack';
 import Top from '../../components/Top/Top';
+import DeleteWarning from '../../components/DeleteWarning/DeleteWarning';
 import './Home.css';
 
-export default function Home({ allCards, activeCardId, handleClickActiveCard, handleDeleteCard }) {
+export default function Home({
+  allCards,
+  activeCardId,
+  handleClickActiveCard,
+  handleDeleteCard,
+  handleDisplayWarning,
+  displayDeleteWarning,
+}) {
   const navigate = useNavigate();
   if (allCards === null) return;
   // if (Object.keys(allCards).length === 0) return;
@@ -22,6 +31,11 @@ export default function Home({ allCards, activeCardId, handleClickActiveCard, ha
   return (
     <>
       <Top title='E-WALLET' />
+
+      {displayDeleteWarning ? (
+        <DeleteWarning handleDisplayWarning={handleDisplayWarning} handleDeleteCard={handleDeleteCard} />
+      ) : null}
+
       {allCards.length >= 1 ? (
         <>
           <article className='active__card'>
@@ -30,13 +44,14 @@ export default function Home({ allCards, activeCardId, handleClickActiveCard, ha
               activeCard={activeCard}
               handleClickActiveCard={handleClickActiveCard}
               handleDeleteCard={handleDeleteCard}
+              handleDisplayWarning={handleDisplayWarning}
             />
           </article>
           <CardStack
             allCards={allCards}
             activeCardId={activeCardId}
             handleClickActiveCard={handleClickActiveCard}
-            handleDeleteCard={handleDeleteCard}
+            handleDisplayWarning={handleDisplayWarning}
           />
           <button className='btn btn-addnewcard' onClick={handleClick}>
             ADD A NEW CARD

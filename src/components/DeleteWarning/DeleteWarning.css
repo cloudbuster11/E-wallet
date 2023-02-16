@@ -1,0 +1,10 @@
+.delete__modal {
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 8px;
+  padding: 3rem;
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  left: 38%;
+}
