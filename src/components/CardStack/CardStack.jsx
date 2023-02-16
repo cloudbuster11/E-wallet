@@ -2,8 +2,7 @@ import Card from '../Card/Card';
 
 import './CardStack.css';
 
-export default function CardStack({ allCards, activeCardId, handleClickActiveCard }) {
-  if (allCards === null) return;
+export default function CardStack({ allCards, activeCardId, handleClickActiveCard, handleDeleteCard }) {
   function removeActiveCard(allCards, activeCardId) {
     const allCardsCopy = Array.from(allCards);
 
@@ -13,11 +12,16 @@ export default function CardStack({ allCards, activeCardId, handleClickActiveCar
   }
 
   const cardStack = removeActiveCard(allCards, activeCardId);
-  // console.log('Lista med kort i stacken:', cardStack);
 
   const cardStackList = cardStack.map((card) => {
-    // console.log(card);
-    return <Card key={card.id} activeCard={card} handleClickActiveCard={handleClickActiveCard} />;
+    return (
+      <Card
+        key={card.id}
+        activeCard={card}
+        handleClickActiveCard={handleClickActiveCard}
+        handleDeleteCard={handleDeleteCard}
+      />
+    );
   });
 
   return <article className='card__stack'>{cardStackList}</article>;

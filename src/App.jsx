@@ -1,50 +1,10 @@
-import React from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { bitCoinTheme, blockChainTheme, evilTheme, ninjaTheme } from './themes';
+import { startData } from './startData';
 
 import './App.css';
-
-// import router from './router';
-
-// import { createBrowserRouter } from 'react-router-dom';
 import Home from './views/Home/Home';
 import AddCard from './views/AddCard/AddCard';
-
-const startData = [
-  {
-    id: 0,
-    cardNumber: '1234 1234 1234 1234',
-    name: 'Joakim Trulsson',
-    vendor: 'Bitcoin Inc',
-    valid: '12/12',
-    theme: bitCoinTheme,
-  },
-  {
-    id: 1,
-    cardNumber: 1234123412341234,
-    name: 'Emmy Trulsson',
-    valid: '12/12',
-    vendor: 'Block Chain',
-    theme: blockChainTheme,
-  },
-  {
-    id: 2,
-    cardNumber: 1234123412341234,
-    name: 'Bella Trulsson',
-    vendor: 'Evil Corp',
-    valid: '12/12',
-    theme: evilTheme,
-  },
-  {
-    id: 3,
-    cardNumber: 1234123412341234,
-    name: 'Eddi Trulsson',
-    vendor: 'Ninja Bank',
-    valid: '12/12',
-    theme: ninjaTheme,
-  },
-];
 
 function App() {
   const [allCards, setAllCards] = useState(JSON.parse(localStorage.getItem('allCards')));
@@ -64,21 +24,23 @@ function App() {
     localStorage.setItem('allCards', JSON.stringify(allCards));
   }, [allCards]);
 
-  let activeCard = {};
-
-  if (allCards) {
-    activeCard = allCards.find((card) => card.id === activeCardId);
-  }
-
   const handleClickActiveCard = (card) => {
     setActiveCardId(card);
   };
 
   const handleSubmit = (card) => {
+    setActiveCardId(card.id);
     setAllCards([...allCards, card]);
   };
 
-  // Bygg om så id state inte behövs?
+  const handleDeleteCard = (clickedCard) => {
+    const allCardsCopy = Array.from(allCards);
+    const removedCardId = allCardsCopy.findIndex((card) => card.id === clickedCard.id);
+
+    allCardsCopy.splice(removedCardId, 1);
+    setAllCards(allCardsCopy);
+  };
+
   const router = createBrowserRouter([
     {
       path: '/',
@@ -86,8 +48,8 @@ function App() {
         <Home
           allCards={allCards}
           activeCardId={activeCardId}
-          activeCard={activeCard}
           handleClickActiveCard={handleClickActiveCard}
+          handleDeleteCard={handleDeleteCard}
         />
       ),
     },

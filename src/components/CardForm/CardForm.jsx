@@ -6,10 +6,9 @@ import './CardForm.css';
 
 export default function CardForm(props) {
   const navigate = useNavigate();
-  const id = uuid().slice(0, 4);
-
+  let id = uuid().slice(0, 4);
   let newCard = {
-    id,
+    id: id,
   };
 
   function handleClick() {
@@ -43,7 +42,12 @@ export default function CardForm(props) {
         </section>
         <section className='cvv'>
           <label htmlFor='form_cvv'>Cvv</label>
-          <input type='numbers' id='form__cvv' onChange={(e) => (newCard.cvv = e.target.value)}></input>
+          <input
+            type='numbers'
+            id='form__cvv'
+            maxLength={3}
+            onChange={(e) => (newCard.cvv = e.target.value)}
+          ></input>
         </section>
       </section>
       <label htmlFor='form_vendor'>Vendor</label>
@@ -72,8 +76,12 @@ export default function CardForm(props) {
         className='btn btn-addcard'
         onClick={(e) => {
           e.preventDefault();
-          props.handleSubmit(newCard);
-          handleClick();
+          const neededKeys = ['id', 'name', 'cvv', 'vendor', 'cardNumber', 'valid'];
+
+          if (neededKeys.every((key) => Object.keys(newCard).includes(key))) {
+            props.handleSubmit(newCard);
+            handleClick();
+          } else alert('Please enter all your card details.');
         }}
       >
         ADD CARD
