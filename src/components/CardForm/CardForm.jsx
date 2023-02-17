@@ -7,6 +7,7 @@ import './CardForm.css';
 export default function CardForm(props) {
   const navigate = useNavigate();
   let id = uuid().slice(0, 4);
+
   let newCard = {
     id: id,
   };

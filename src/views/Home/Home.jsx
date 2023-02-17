@@ -9,22 +9,20 @@ import './Home.css';
 
 export default function Home({
   allCards,
-  activeCardId,
   handleClickActiveCard,
   handleDeleteCard,
   handleDisplayWarning,
   displayDeleteWarning,
 }) {
   const navigate = useNavigate();
+
   if (allCards === null) return;
-  // if (Object.keys(allCards).length === 0) return;
+
   let activeCard = {};
+  activeCard = allCards.at(0);
 
-  if (allCards) {
-    activeCard = allCards.at(0);
-    // activeCard = allCards.find((card) => card.id === activeCardId);
-  }
-
+  // if (allCards) {
+  // }
   function handleClick() {
     navigate('/addcard');
   }
@@ -50,7 +48,6 @@ export default function Home({
           </article>
           <CardStack
             allCards={allCards}
-            // activeCardId={activeCardId}
             handleClickActiveCard={handleClickActiveCard}
             handleDisplayWarning={handleDisplayWarning}
           />

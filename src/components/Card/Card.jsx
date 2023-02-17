@@ -1,7 +1,6 @@
 import './Card.css';
 
 export default function Card({ activeCard, handleClickActiveCard, handleDisplayWarning }) {
-  // console.log(activeCard);
   const activeCardView = (
     <article
       className='card__container'
