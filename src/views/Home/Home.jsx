@@ -51,6 +51,7 @@ export default function Home({
             handleClickActiveCard={handleClickActiveCard}
             handleDisplayWarning={handleDisplayWarning}
           />
+          <h2 className='howto__delete'>Rightclick to delete a card.</h2>
           <button className='btn btn-addnewcard' onClick={handleClick}>
             ADD A NEW CARD
           </button>

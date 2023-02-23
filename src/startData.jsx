@@ -11,7 +11,7 @@ const startData = [
   },
   {
     id: 1,
-    cardNumber: 1234123412341234,
+    cardNumber: '1234 1234 1234 1234',
     name: 'Emmy Trulsson',
     valid: '12/12',
     vendor: 'Block Chain',
@@ -19,7 +19,7 @@ const startData = [
   },
   {
     id: 2,
-    cardNumber: 1234123412341234,
+    cardNumber: '1234 1234 1234 1234',
     name: 'Bella Trulsson',
     vendor: 'Evil Corp',
     valid: '12/12',
@@ -27,7 +27,7 @@ const startData = [
   },
   {
     id: 3,
-    cardNumber: 1234123412341234,
+    cardNumber: '1234 1234 1234 1234',
     name: 'Eddi Trulsson',
     vendor: 'Ninja Bank',
     valid: '12/12',

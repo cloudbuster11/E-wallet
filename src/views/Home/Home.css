@@ -1,5 +1,4 @@
 .active__card {
-  /* text-align: center; */
   margin-bottom: 2rem;
 }
 
@@ -10,4 +9,8 @@
 
 .text-alert {
   margin-bottom: 2rem;
+}
+
+.howto__delete {
+  text-align: center;
 }

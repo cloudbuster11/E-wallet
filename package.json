@@ -1,6 +1,7 @@
 {
   "name": "e-wallet",
   "private": true,
+  "homepage": "https://cloudbuster11.github.io/E-wallet/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
